@@ -1,3 +1,5 @@
+package chanthakorn.naphat.lab2;
+
 public class CamelCaseNaming {
     public static void main(String[] args) {
         if (args.length != 2) {

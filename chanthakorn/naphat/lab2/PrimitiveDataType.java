@@ -1,3 +1,5 @@
+package chanthakorn.naphat.lab2;
+
 public class PrimitiveDataType {
     public static void main(String[] args) {
         String first_name = "Naphat";

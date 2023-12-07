@@ -1,21 +1,35 @@
 package chanthakorn.naphat.lab3;
-
 import java.util.Scanner;
 
-public class NumberGuessingGame {
+public class ConfigurableNumberGuessingGame {
+    static int answer, max, min, tries, maxTries;
+    static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
+        configure();
+        genAnswer();
+        playGame();
+    }
+
+    public static void configure() {
+        System.out.print("Enter the min value:");
+        min = scanner.nextInt();
+        System.out.print("Enter the max value:");
+        max = scanner.nextInt();
+        System.out.print("Enter the maximum number of tries:");
+        maxTries = scanner.nextInt();
+    }
+
+    public static void genAnswer() {
+        answer = min + (int) (Math.random() * ((max - min) + 1));
+    }
+
+    public static void playGame() {
         System.out.println("Welcome to a number guessing game!");
-
-        int max = 20;
-        int min = 1;
-        int answer = min + (int) (Math.random() * ((max - min) + 1));
         int tries = 0;
-        int maxTries = 5;
-
-        Scanner scanner = new Scanner(System.in);
 
         while (tries < maxTries) {
-            System.out.print("Enter an integer between 1 and 20:");
+            System.out.print("Enter an integer between " + min + " and " + max + ":");
             int guess = scanner.nextInt();
             tries++;
 

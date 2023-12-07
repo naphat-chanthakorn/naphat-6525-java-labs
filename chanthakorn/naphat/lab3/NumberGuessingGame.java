@@ -6,7 +6,7 @@ public class NumberGuessingGame {
     public static void main(String[] args) {
         System.out.println("Welcome to a number guessing game!");
 
-        int max = 20;
+        int max = 20; 
         int min = 1;
         int answer = min + (int) (Math.random() * ((max - min) + 1));
         int tries = 0;

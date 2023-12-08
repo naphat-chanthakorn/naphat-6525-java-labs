@@ -1,7 +1,7 @@
-package chanthakorn.naphat.lab3;
+package chanthakorn.naphat.lab4;
 import java.util.Scanner;
 
-public class NumberGuessingGames {
+public class GuessNumberGamesV2 {
     static int answer, max, min, tries, maxTries;
     static Scanner scanner = new Scanner(System.in);
 
@@ -11,30 +11,26 @@ public class NumberGuessingGames {
     }
 
     public static void playGames() {
-        // Allow the player to play the game multiple times
         do {
-            // Start the game by configure settings, generate anwser and play the game
             configure();
             genAnswer();
             playGame();
-            // Ask the player if they want to play again
+
             System.out.print("Want to play again (Y or y) :");
             String playAgain = scanner.next();
-            // Check if playAgain variable is Y or y
+
             if (!playAgain.equalsIgnoreCase("y")) {
                 break;
             }
+            
         } while (true);
-        // Close the scanner
         scanner.close();
     }
 
     public static void configure() {
-        // Configure settings by user input with the min value, max value and the maximum number of tries
         System.out.print("Enter the min value:");
             min = scanner.nextInt();
 
-        // Validate the max value must be at least equal to min value
         while (true) {
             System.out.print("Enter the max value:");
             max = scanner.nextInt();
@@ -46,7 +42,6 @@ public class NumberGuessingGames {
             }
         }
 
-        // Validate the maximum number of tries must be at least equal to min value
         while (true) {
             System.out.print("Enter the maximum number of tries:");
             maxTries = scanner.nextInt();
@@ -60,27 +55,23 @@ public class NumberGuessingGames {
     }
 
     public static void genAnswer() {
-        // Generate a random answer
         answer = min + (int) (Math.random() * ((max - min) + 1));
     }
 
     public static void playGame() {
-        // Start the game!
         System.out.println("Welcome to a number guessing game!");
         tries = 0;
 
-        // The player make guess untill reaching the maximum of tries
         while (tries < maxTries) {
             System.out.print("Enter an integer between " + min + " and " + max + ": ");
             int guess = scanner.nextInt();
 
             if (guess < min || guess > max) {
-                System.out.println("The number must be between " + min + " and " + max);
+                System.out.println("Your guess should be in [" + min + "," + max + "]:");
                 continue;
             }
             tries++;
 
-            // Check if the guess is correct or not and then provide the result
             if (guess == answer) {
                 System.out.println("Congratulations!");
                 break;
@@ -91,14 +82,12 @@ public class NumberGuessingGames {
             }
         }
 
-        // Display the number of the player tried
         if (tries > 1) {
             System.out.println("You have tried " + tries + " times.");
         } else {
             System.out.println("You have tried 1 time.");
         }
 
-        // Display the player is ran out of guesses and reveal the answer
         if (tries == maxTries) {
             System.out.println("You ran out of guesses. The answer is " + answer);
         }

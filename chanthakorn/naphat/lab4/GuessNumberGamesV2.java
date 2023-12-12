@@ -78,11 +78,11 @@ public class GuessNumberGamesV2 {
 
         // The player make guess untill reaching the maximum of tries
         while (tries < maxTries) {
-            System.out.print("Enter an integer between " + min + " and " + max + ": ");
+            System.out.print("Enter an integer between " + min + " and " + max + ":");
             int guess = scanner.nextInt();
 
             if (guess < min || guess > max) {
-                System.out.println("Your guess should be in [" + min + "," + max + "]");
+                System.out.println("Your guess should be in [" + min + "," + max + "]:");
             }
 
             guesses.add(guess); // Add the guess to the ArrayList

@@ -75,7 +75,8 @@ public class GuessNumberGameV3 {
         tries = 0; // Resets the number of tries for each new game
         winStatus = false;
 
-        // Loops until the maximum number of tries is reached or the correct answer is guessed
+        // Loops until the maximum number of tries is reached or the correct answer is
+        // guessed
         while (tries < maxTries) {
             System.out.print("Enter an integer between " + min + " and " + max + ": ");
             int guess = scanner.nextInt();

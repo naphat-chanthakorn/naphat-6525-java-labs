@@ -180,7 +180,7 @@ public class GuessNumberGameV3 {
     // Displays a summary of the current game's statistics
     public static void displayGameLog(boolean winStatus) {
         System.out.println(
-                "Game Log: Answer: " + answer + ", Guesses: " + tries + ", Win: " + (winStatus ? "Win" : "Loss"));
+                "Game Log: Answer: " + answer + ", Guesses: " + tries + ", Win: " + (winStatus ? "true" : "false"));
     }
 
     // Updates overall game statistics based on the outcome of the current game

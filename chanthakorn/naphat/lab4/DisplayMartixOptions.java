@@ -89,7 +89,7 @@ public class DisplayMartixOptions {
 
         for (int i = 0; i < rowDimension; i++) {
             for (int j = 0; j < columnDimension; j++) {
-                matrix[i][j] = random.nextInt(10); 
+                matrix[i][j] = random.nextInt(10);
             }
         }
     }

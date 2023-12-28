@@ -2,7 +2,7 @@ package chanthakorn.naphat.lab4;
 
 import java.util.Scanner;
 
-public class MatrixDisplay {
+public class DisplayMartixOptions {
 
     private static int[][] matrix;
     private static int row;

@@ -3,45 +3,48 @@ package chanthakorn.naphat.lab4;
 import java.util.Scanner;
 import java.util.Random;
 
-public class test {
-
-    private static int[][] matrix;
-    private static int rowDimension, columnDimension;
-    private static Scanner scanner = new Scanner(System.in);
+public class DisplayMatrixOptions {
+    static int[][] matrix; // Array to store the matrix elements
+    static int rowDimension, columnDimension; // Variable to store the number of rows and columns in the matrix
+    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         int choice;
 
-        displayMenu();
+        creationMenu(); // Display the matrix creation menu
         System.out.print("Enter choice (1-5): ");
         choice = scanner.nextInt();
 
+        // Switch statement to handle different matrix creation options
         switch (choice) {
             case 1:
-                userInputMatrix();
+                userInputMatrix(); // Call the method to input matrix elements from the user
+                displayMatrix(); // Call the method to display the matrix
                 break;
             case 2:
-                randomMatrix();
+                randomMatrix(); // Call the method to generate a matrix with random values
+                displayMatrix();
                 break;
             case 3:
-                allZerosMatrix();
+                allZerosMatrix(); // Call the method to create a matrix with all zeros
+                displayMatrix();
                 break;
             case 4:
-                allOnesMatrix();
+                allOnesMatrix(); // Call the method to create a matrix with all ones
+                displayMatrix();
                 break;
             case 5:
-                diagonalMatrix();
+                diagonalMatrix(); // Call method to create a diagonal matrix
                 break;
             default:
                 break;
         }
 
-        displayMatrix();
-
-        scanner.close();
+        scanner.close(); // close the scanner
     }
 
-    public static void displayMenu() {
+    // Method to display the matrix creation menu
+    public static void creationMenu() {
         System.out.println("Select matrix initialization method:");
         System.out.println("1. User Input");
         System.out.println("2. Random Numbers");
@@ -50,12 +53,14 @@ public class test {
         System.out.println("5. Diagonal");
     }
 
+    // Method to input matrix values from the user
     public static void userInputMatrix() {
         System.out.print("Enter the number of rows: ");
         rowDimension = scanner.nextInt();
         System.out.print("Enter the number of columns: ");
         columnDimension = scanner.nextInt();
 
+        // Check if both rows and columns are greater than 0
         if (rowDimension <= 0 || columnDimension <= 0) {
             System.out.println("Both rows and columns must be greater than 0. Please try again.");
             return;
@@ -63,6 +68,7 @@ public class test {
 
         matrix = new int[rowDimension][columnDimension];
 
+        // Loop to input values into the matrix
         for (int i = 0; i < rowDimension; i++) {
             for (int j = 0; j < columnDimension; j++) {
                 System.err.print("Enter element [" + (i + 1) + "][" + (j + 1) + "]: ");
@@ -71,6 +77,7 @@ public class test {
         }
     }
 
+    // Method to generate a matrix with random values
     public static void randomMatrix() {
         System.out.print("Enter the number of rows: ");
         rowDimension = scanner.nextInt();
@@ -85,13 +92,15 @@ public class test {
         matrix = new int[rowDimension][columnDimension];
         Random random = new Random();
 
+        // Loop to generate random values for the matrix
         for (int i = 0; i < rowDimension; i++) {
             for (int j = 0; j < columnDimension; j++) {
-                matrix[i][j] = random.nextInt(10); 
+                matrix[i][j] = random.nextInt(10);
             }
         }
     }
 
+    // Method to create a matrix with all zeros
     public static void allZerosMatrix() {
         System.out.print("Enter the number of rows: ");
         rowDimension = scanner.nextInt();
@@ -106,6 +115,7 @@ public class test {
         matrix = new int[rowDimension][columnDimension];
     }
 
+    // Method to create a matrix with all ones
     public static void allOnesMatrix() {
         System.out.print("Enter the number of rows: ");
         rowDimension = scanner.nextInt();
@@ -119,6 +129,7 @@ public class test {
 
         matrix = new int[rowDimension][columnDimension];
 
+        // Loop to set all values of the matrix to 1
         for (int i = 0; i < rowDimension; i++) {
             for (int j = 0; j < columnDimension; j++) {
                 matrix[i][j] = 1;
@@ -126,8 +137,9 @@ public class test {
         }
     }
 
+    // Method to create a diagonal matrix
     public static void diagonalMatrix() {
-        System.out.print("Enter the number of rows and columns for diagonal matrix: ");
+        System.out.print("Enter the number of rows and columns for diagona matrix: ");
         int size = scanner.nextInt();
 
         if (size <= 0) {
@@ -137,23 +149,28 @@ public class test {
 
         matrix = new int[size][size];
 
+        System.out.println("Displaying Matrix:");
+
+        // Loop to set diagonal values to 1 and others to 0
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 matrix[i][j] = (i == j) ? 1 : 0;
-                System.out.println(matrix[i][j] + " ");
+                System.out.print(matrix[i][j] + " ");
             }
             System.out.println();
         }
     }
 
+    // Method to display the matrix
     public static void displayMatrix() {
         System.out.println("Displaying Matrix:");
 
+        // Loop to iterate through each element of the matrix and print it
         for (int i = 0; i < rowDimension; i++) {
             for (int j = 0; j < columnDimension; j++) {
                 System.out.print(matrix[i][j] + " ");
             }
-            System.out.println();
+            System.out.println(); // Move to the next line after printing each row
         }
     }
 }

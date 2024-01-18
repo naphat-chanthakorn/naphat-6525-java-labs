@@ -4,27 +4,33 @@ import java.util.Scanner;
 
 public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
     protected static final int MAX_GUESSES = 20;
+    // Array to store the guesses made by the player
     protected int[] guesses;
+    // Variable to keep track of the number of guesses made
     protected int numGuesses;
 
+    // Default constructor
     public GuessNumberGameVer2() {
-        super();
+        super(); // Call the constructor of the superclass
         guesses = new int[MAX_GUESSES];
         numGuesses = 0;
     }
 
+    // Constructor with minimum and maximum number parameters
     public GuessNumberGameVer2(int minNum, int maxNum) {
-        super(minNum, maxNum);
+        super(minNum, maxNum); // Call the constructor of the superclass with parameters
         guesses = new int[MAX_GUESSES];
         numGuesses = 0;
     }
 
+    // Constructor with minimum, maximum number, and maximum tries parameters
     public GuessNumberGameVer2(int minNum, int maxNum, int maxTries) {
         super(minNum, maxNum, maxTries);
         guesses = new int[MAX_GUESSES];
         numGuesses = 0;
     }
 
+    // Override the playGame method from the superclass
     @Override
     public void playGame() {
         System.out.println("Welcome to a number guessing game!");
@@ -60,6 +66,7 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
         } while (guess != correctNum && numGuesses < maxTries);
     }
 
+    // Method to show a specific guess made by the player
     public void showSpecific() {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter which guess in range (1-" + numGuesses + ")");
@@ -70,6 +77,7 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
         }
     }
 
+    // Method to show all guesses made by the player
     public void showGuesses() {
         for (int index = 0; index < numGuesses; index++) {
             System.out.print(guesses[index] + " ");
@@ -77,11 +85,12 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
         System.out.println("");
     }
 
+    // Method to play the game multiple times based on user choice
     public void playGames() {
         Scanner input = new Scanner(System.in);
         char choice;
 
-        playGame();
+        playGame(); // Initial game play
 
         do {
             System.out.println("If want to play again? type 'y' to continue or 'q' to quit:");
@@ -91,15 +100,15 @@ public class GuessNumberGameVer2 extends GuessNumberGameVer1 {
             switch (choice) {
                 case 'y':
                 case 'Y':
-                    playGame();
+                    playGame(); // Play the game again
                     break;
                 case 'g':
                 case 'G':
-                    showSpecific();
+                    showSpecific(); // Show a specific guess
                     break;
                 case 'a':
                 case 'A':
-                    showGuesses();
+                    showGuesses(); // Show all guesses
                     break;
                 case 'q':
                 case 'Q':

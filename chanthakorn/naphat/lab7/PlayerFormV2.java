@@ -9,7 +9,7 @@ public class PlayerFormV2 extends PlayerFormV1 {
     protected JComboBox<String> playerTypeBox;
     protected JTextArea noteTxtArea;
     protected JScrollPane scrollPane;
-    protected JPanel underPanel;
+    protected JPanel bottomPanel;
 
     public PlayerFormV2(String title) {
         // Call superclass constructor to set window title
@@ -22,8 +22,8 @@ public class PlayerFormV2 extends PlayerFormV1 {
         super.addComponents();
 
         // Create panel for components
-        underPanel = new JPanel();
-        underPanel.setLayout(new BorderLayout());
+        bottomPanel = new JPanel();
+        bottomPanel.setLayout(new BorderLayout());
         // Adjust layout of topPanel for components
         topPanel.setLayout(new GridLayout(5, 2));
 
@@ -49,11 +49,11 @@ public class PlayerFormV2 extends PlayerFormV1 {
         noteTxtArea.setLineWrap(true);
         noteTxtArea.setWrapStyleWord(true);
         // Add note label to the underPanel
-        underPanel.add(noteLabel, BorderLayout.WEST);
-        underPanel.add(scrollPane, BorderLayout.SOUTH);
+        bottomPanel.add(noteLabel, BorderLayout.WEST);
+        bottomPanel.add(scrollPane, BorderLayout.SOUTH);
 
         // Add underPanel to the mainPanel
-        mainPanel.add(underPanel, BorderLayout.CENTER);
+        mainPanel.add(bottomPanel, BorderLayout.CENTER);
     }
 
     // Method to set features of the frame

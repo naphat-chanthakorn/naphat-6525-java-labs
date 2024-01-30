@@ -2,12 +2,12 @@ package chanthakorn.naphat.lab8;
 
 import javax.swing.*;
 
-import chanthakorn.naphat.lab7.PlayerFormV1;
 import chanthakorn.naphat.lab7.PlayerFormV2;
 
 public class PlayerFormV3 extends PlayerFormV2 {
     protected JMenuBar menuBar;
-    protected JMenu fileMenu;
+    protected JMenu fileMenu, configMenu;
+    protected JMenuItem newMenuItem, openMenuItem, saveMenuItem, exitMenuItem, colorMenuItem, sizMenuItem;
 
     public PlayerFormV3(String title) {
         // Call superclass constructor to set window title
@@ -18,6 +18,29 @@ public class PlayerFormV3 extends PlayerFormV2 {
     public void addComponents() {
         // Call superclass method to add components
         super.addComponents();
+    }
+
+    public void addMenus()  {
+        menuBar = new JMenuBar();
+        fileMenu = new JMenu("File");
+        configMenu = new JMenu("Config");
+
+        newMenuItem = new JMenuItem("New");
+        openMenuItem = new JMenuItem("Open");
+        saveMenuItem = new JMenuItem("Save");
+        exitMenuItem = new JMenuItem("Exit");
+        colorMenuItem = new JMenuItem("Color");
+        sizMenuItem = new JMenuItem("Size");
+
+        fileMenu.add(newMenuItem);
+        fileMenu.add(openMenuItem);
+        fileMenu.add(saveMenuItem);
+        fileMenu.add(exitMenuItem);
+        configMenu.add(colorMenuItem);
+        configMenu.add(sizMenuItem);
+
+        menuBar.add(fileMenu);
+        menuBar.add(configMenu);
     }
 
     // Method to set features of the frame
@@ -39,6 +62,7 @@ public class PlayerFormV3 extends PlayerFormV2 {
         msw.addComponents();
         // Call the method setFrameFeatures
         msw.setFrameFeatures();
+        msw.addMenus();
     }
 
     // Main method to start

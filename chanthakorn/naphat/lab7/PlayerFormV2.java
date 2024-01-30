@@ -39,7 +39,7 @@ public class PlayerFormV2 extends PlayerFormV1 {
 
         // Add note label and text area
         noteLabel = new JLabel("Note:");
-        noteTxtArea = new JTextArea(2, 35);
+        noteTxtArea = new JTextArea(3, 35);
         scrollPane = new JScrollPane(noteTxtArea);
         // Set default note text
         noteTxtArea.setText("Thailand will face Oman at the Abdullah bin Khalifa Stadium in Doha, Qatar, " +

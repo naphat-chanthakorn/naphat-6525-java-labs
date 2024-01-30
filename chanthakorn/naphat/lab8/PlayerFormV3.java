@@ -1,30 +1,23 @@
-package chanthakorn.naphat.lab7;
+package chanthakorn.naphat.lab8;
 
 import javax.swing.*;
 
-public class MySimpleWindow extends JFrame {
-    protected JPanel mainPanel, buttonsPanel;
-    protected JButton resetButton, submitButton;
+import chanthakorn.naphat.lab7.PlayerFormV1;
+import chanthakorn.naphat.lab7.PlayerFormV2;
 
-    public MySimpleWindow(String title) {
+public class PlayerFormV3 extends PlayerFormV2 {
+    protected JMenuBar menuBar;
+    protected JMenu fileMenu;
+
+    public PlayerFormV3(String title) {
         // Call superclass constructor to set window title
         super(title);
     }
 
     // Method to add components to the window
     public void addComponents() {
-        // Create main panel and buttons panel
-        mainPanel = new JPanel();
-        buttonsPanel = new JPanel();
-        // Create reset and submit buttons
-        resetButton = new JButton("Reset");
-        submitButton = new JButton("Submit");
-        // Add buttons to the buttons panel
-        buttonsPanel.add(resetButton);
-        buttonsPanel.add(submitButton);
-
-        // Add the buttons panel to the main panel
-        add(buttonsPanel);
+        // Call superclass method to add components
+        super.addComponents();
     }
 
     // Method to set features of the frame
@@ -41,7 +34,7 @@ public class MySimpleWindow extends JFrame {
 
     // Method to create and show the GUI
     public static void createAndShowGUI() {
-        MySimpleWindow msw = new MySimpleWindow("My Simple Window");
+        PlayerFormV2 msw = new PlayerFormV2("Player Form V3");
         // Call the method addComponents to the window
         msw.addComponents();
         // Call the method setFrameFeatures

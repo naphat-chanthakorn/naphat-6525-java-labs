@@ -16,7 +16,7 @@ public class PlayerFormV2 extends PlayerFormV1 {
     }
 
     // Method to add components to the window
-    protected void addComponents() {
+    public void addComponents() {
         // Call superclass method to add components
         super.addComponents();
 
@@ -56,7 +56,7 @@ public class PlayerFormV2 extends PlayerFormV1 {
     }
 
     // Method to set features of the frame
-    protected void setFrameFeatures() {
+    public void setFrameFeatures() {
         // Set the window to appear in the center of the screen
         setLocationRelativeTo(null);
         // Make the window visible

@@ -4,10 +4,11 @@ import javax.swing.*;
 
 import chanthakorn.naphat.lab7.PlayerFormV2;
 
+// Extending PlayerFormV2 to inherit its properties and behaviors
 public class PlayerFormV3 extends PlayerFormV2 {
     protected JMenuBar menuBar;
     protected JMenu fileMenu, configMenu;
-    protected JMenuItem newMenuItem, openMenuItem, saveMenuItem, exitMenuItem, colorMenuItem, sizMenuItem;
+    protected JMenuItem newMI, openMI, saveMI, exitMI, colorMI, sizMI;
 
     public PlayerFormV3(String title) {
         // Call superclass constructor to set window title
@@ -25,22 +26,24 @@ public class PlayerFormV3 extends PlayerFormV2 {
         fileMenu = new JMenu("File");
         configMenu = new JMenu("Config");
 
-        newMenuItem = new JMenuItem("New");
-        openMenuItem = new JMenuItem("Open");
-        saveMenuItem = new JMenuItem("Save");
-        exitMenuItem = new JMenuItem("Exit");
-        colorMenuItem = new JMenuItem("Color");
-        sizMenuItem = new JMenuItem("Size");
+        newMI = new JMenuItem("New");
+        openMI = new JMenuItem("Open");
+        saveMI = new JMenuItem("Save");
+        exitMI = new JMenuItem("Exit");
+        colorMI = new JMenuItem("Color");
+        sizMI = new JMenuItem("Size");
 
-        fileMenu.add(newMenuItem);
-        fileMenu.add(openMenuItem);
-        fileMenu.add(saveMenuItem);
-        fileMenu.add(exitMenuItem);
-        configMenu.add(colorMenuItem);
-        configMenu.add(sizMenuItem);
+        fileMenu.add(newMI);
+        fileMenu.add(openMI);
+        fileMenu.add(saveMI);
+        fileMenu.add(exitMI);
+        configMenu.add(colorMI);
+        configMenu.add(sizMI);
 
         menuBar.add(fileMenu);
         menuBar.add(configMenu);
+        // Set the JMenuBar for the JFrame
+        setJMenuBar(menuBar);
     }
 
     // Method to set features of the frame
@@ -57,10 +60,9 @@ public class PlayerFormV3 extends PlayerFormV2 {
 
     // Method to create and show the GUI
     public static void createAndShowGUI() {
-        PlayerFormV2 msw = new PlayerFormV2("Player Form V3");
+        PlayerFormV3 msw = new PlayerFormV3("Player Form V3");
         // Call the method addComponents to the window
         msw.addComponents();
-        // Call the method setFrameFeatures
         msw.setFrameFeatures();
         msw.addMenus();
     }

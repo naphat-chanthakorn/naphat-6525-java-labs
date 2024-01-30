@@ -3,6 +3,7 @@ package chanthakorn.naphat.lab7;
 import java.awt.*;
 import javax.swing.*;
 
+// Extending MySimpleWindow to inherit its properties and behaviors
 public class PlayerFormV1 extends MySimpleWindow {
     // Labels and text fields for player information
     protected JLabel nameLabel, nationalityLabel, birthLabel, genderLabel;

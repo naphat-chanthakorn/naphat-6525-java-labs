@@ -3,6 +3,7 @@ package chanthakorn.naphat.lab7;
 import javax.swing.*;
 import java.awt.*;
 
+// Extending PlayerFormV1 to inherit its properties and behaviors
 public class PlayerFormV2 extends PlayerFormV1 {
     protected JLabel playerTypeLabel, noteLabel;
     protected JComboBox<String> playerTypeBox;

@@ -1,3 +1,10 @@
+/*
+ * The Author: Naphat Chanthakorn
+ * Student ID: 663040652-5
+ * Sec: 2
+ * Date: 02/02/2024
+ */
+
 package chanthakorn.naphat.lab8;
 
 import java.awt.*;
@@ -7,7 +14,7 @@ public class PlayerFormV4 extends PlayerFormV3 {
     protected JLabel hobbiesLabel, sportLabel, yearExpLabel;
     protected JCheckBox readBox, browBox, sleepBox, travelBox;
     protected JList<String> sportsList;
-    protected String[] sports = {"Badminton", "Boxing", "Football", "Running"};
+    protected String[] sports = { "Badminton", "Boxing", "Football", "Running" };
     protected JPanel midPanel, hobbiesPanel, sportsPanel, yearExpPanel, boxPanel;
     protected JSlider yearExpSlider;
 
@@ -25,14 +32,14 @@ public class PlayerFormV4 extends PlayerFormV3 {
         browBox = new JCheckBox("Browsing");
         sleepBox = new JCheckBox("Sleeping", true);
         travelBox = new JCheckBox("Traveling");
-        boxPanel.add(readBox); 
+        boxPanel.add(readBox);
         boxPanel.add(browBox);
         boxPanel.add(sleepBox);
         boxPanel.add(travelBox);
         hobbiesPanel.add(hobbiesLabel, BorderLayout.WEST);
         hobbiesPanel.add(boxPanel, BorderLayout.SOUTH);
 
-        sportsPanel = new JPanel(new GridLayout(1,1));
+        sportsPanel = new JPanel(new GridLayout(1, 1));
         sportLabel = new JLabel("Sports:");
         sportsList = new JList<>(sports);
         sportsList.setSelectedIndex(2);
@@ -41,7 +48,7 @@ public class PlayerFormV4 extends PlayerFormV3 {
 
         yearExpPanel = new JPanel(new BorderLayout());
         yearExpLabel = new JLabel("Year of experience in this sport:");
-        yearExpSlider = new JSlider(JSlider.HORIZONTAL, 0, 20, 0); 
+        yearExpSlider = new JSlider(JSlider.HORIZONTAL, 0, 20, 0);
         yearExpSlider.setMajorTickSpacing(5);
         yearExpSlider.setMinorTickSpacing(1);
         yearExpSlider.setPaintTicks(true);

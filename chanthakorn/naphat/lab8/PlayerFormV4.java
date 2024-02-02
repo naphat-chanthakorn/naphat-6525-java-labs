@@ -61,8 +61,6 @@ public class PlayerFormV4 extends PlayerFormV3 {
         midPanel.add(sportsPanel, BorderLayout.CENTER);
         midPanel.add(yearExpPanel, BorderLayout.SOUTH);
 
-        bottomPanel.add(buttonsPanel, BorderLayout.SOUTH);
-
         mainPanel.add(midPanel, BorderLayout.CENTER);
         mainPanel.add(bottomPanel, BorderLayout.SOUTH);
     }

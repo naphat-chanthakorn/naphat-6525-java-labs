@@ -48,11 +48,11 @@ public class PlayerFormV2 extends PlayerFormV1 {
         // Enable line wrap and word wrap for the text area
         noteTxtArea.setLineWrap(true);
         noteTxtArea.setWrapStyleWord(true);
-        // Add note label to the underPanel
+        // Add note label to the bottomPanel
         bottomPanel.add(noteLabel, BorderLayout.NORTH);
         bottomPanel.add(scrollPane, BorderLayout.CENTER);
 
-        // Add underPanel to the mainPanel
+        // Add bottomPanel to the mainPanel
         mainPanel.add(bottomPanel, BorderLayout.CENTER);
     }
 

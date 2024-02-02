@@ -18,8 +18,6 @@ public class PlayerFormV4 extends PlayerFormV3 {
     public void addComponents() {
         super.addComponents();
 
-        topPanel.setLayout(new GridLayout(5,2));
-
         hobbiesPanel = new JPanel(new BorderLayout());
         hobbiesLabel = new JLabel("Hobbies:");
         boxPanel = new JPanel();

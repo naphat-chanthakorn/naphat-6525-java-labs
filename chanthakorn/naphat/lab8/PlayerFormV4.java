@@ -3,7 +3,7 @@
  * Student ID: 663040652-5
  * Sec: 2
  * Date: 02/02/2024
- */
+*/
 
 package chanthakorn.naphat.lab8;
 
@@ -22,6 +22,7 @@ public class PlayerFormV4 extends PlayerFormV3 {
         super(title);
     }
 
+    @Override
     public void addComponents() {
         super.addComponents();
 
@@ -62,7 +63,6 @@ public class PlayerFormV4 extends PlayerFormV3 {
         midPanel.add(yearExpPanel, BorderLayout.SOUTH);
 
         mainPanel.add(midPanel, BorderLayout.CENTER);
-        mainPanel.add(bottomPanel, BorderLayout.SOUTH);
     }
 
     public void setFrameFeatures() {

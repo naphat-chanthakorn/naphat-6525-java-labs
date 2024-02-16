@@ -24,16 +24,16 @@ public class PlayerFormV5 extends PlayerFormV4 {
     public void addComponents() {
         super.addComponents();
 
-        imagePanel = new ReadImage("Image/Football.jpg");
+        imagePanel = new ReadImage("chanthakorn/naphat/lab8/Football.jpg");
         bottomPanel.add(imagePanel, BorderLayout.CENTER);
     }
 
     // Method for adding icons to the menu items
     public void addIcon() {
         // Load icons from image files and set them to the menu items
-        ImageIcon newImageIcon = new ImageIcon("Image/New-icon.png");
-        ImageIcon openImgIcon = new ImageIcon("Image/Open-icon.png");
-        ImageIcon saveImgIcon = new ImageIcon("Image/Save-icon.png");
+        ImageIcon newImageIcon = new ImageIcon("chanthakorn/naphat/lab8/New-icon.png");
+        ImageIcon openImgIcon = new ImageIcon("chanthakorn/naphat/lab8/Open-icon.png");
+        ImageIcon saveImgIcon = new ImageIcon("chanthakorn/naphat/lab8/Save-icon.png");
 
         newMI.setIcon(newImageIcon);
         openMI.setIcon(openImgIcon);

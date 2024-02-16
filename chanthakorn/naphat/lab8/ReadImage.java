@@ -16,7 +16,7 @@ import java.io.*;
 // ReadImage class extends JPanel and is used to display an image
 public class ReadImage extends JPanel {
     BufferedImage image;
-    String filename = "Image/Football.jpg";
+    String filename = "chanthakorn/naphat/lab8/Football.jpg";
 
     // Override the paintComponent method to paint the image on the panel
     @Override

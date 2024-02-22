@@ -8,11 +8,11 @@
 package chanthakorn.naphat.lab10;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionListener;
-
+import javax.swing.event.*;
 import chanthakorn.naphat.lab9.PlayerFormV7;
 
 public class PlayerFormV8 extends PlayerFormV7 implements ListSelectionListener {
+    protected boolean dialogShown = false;
     public PlayerFormV8(String title) {
         super(title);
     }
@@ -20,7 +20,24 @@ public class PlayerFormV8 extends PlayerFormV7 implements ListSelectionListener 
     @Override
     public void addListeners() {
         super.addListeners();
-        
+        sportsList.addListSelectionListener(this);
+    }
+
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
+        if (!e.getValueIsAdjusting() && !dialogShown) {
+            Object[] selectedSports = sportsList.getSelectedValues();
+            StringBuilder message = new StringBuilder("Selected sports are ");
+
+            for (Object sport : selectedSports) {
+                message.append(sport.toString()).append(" ");
+            }
+
+            JOptionPane.showMessageDialog(this, message.toString());
+            dialogShown = true;
+        } else {
+            dialogShown = false;
+        }
     }
 
     public void setFrameFeatures() {
@@ -31,7 +48,7 @@ public class PlayerFormV8 extends PlayerFormV7 implements ListSelectionListener 
     }
 
     public static void createAndShowGUI() {
-        PlayerFormV7 msw = new PlayerFormV7("Player Form V8");
+        PlayerFormV8 msw = new PlayerFormV8("Player Form V8");
         msw.addComponents();
         msw.setFrameFeatures();
         msw.addMenus();

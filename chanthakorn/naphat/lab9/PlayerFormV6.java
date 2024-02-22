@@ -100,6 +100,7 @@ public class PlayerFormV6 extends PlayerFormV5
             sportsBuilder.setLength(sportsBuilder.length() - 2);
         }
 
+        // Store the constructed string
         sports = sportsBuilder.toString();
     }
 

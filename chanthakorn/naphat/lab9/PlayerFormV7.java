@@ -39,7 +39,7 @@ public class PlayerFormV7 extends PlayerFormV6 {
                 message.append("Gender is updated to ");
                 message.append(((JRadioButton) source).getText());
             }
-        } 
+        }
         // Handle item state changes for checkboxes (hobbies)
         else if (source == readBox || source == browBox || source == sleepBox || source == travelBox) {
             message.append(((JCheckBox) source).getText());

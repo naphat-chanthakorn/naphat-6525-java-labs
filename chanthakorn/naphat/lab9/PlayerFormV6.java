@@ -116,8 +116,11 @@ public class PlayerFormV6 extends PlayerFormV5
     }
 
     // Key listener methods for unused key events
-    public void keyTyped(KeyEvent e) {}
-    public void keyReleased(KeyEvent e) {}
+    public void keyTyped(KeyEvent e) {
+    }
+
+    public void keyReleased(KeyEvent e) {
+    }
 
     // Action listener method to handle button clicks
     public void actionPerformed(ActionEvent e) {
@@ -141,7 +144,7 @@ public class PlayerFormV6 extends PlayerFormV5
             // Show message dialog with the constructed message
             JOptionPane.showMessageDialog(this, message.toString());
         }
-        // Set text as blank when use reset button 
+        // Set text as blank when use reset button
         else if (srcObject == resetButton) {
             nameTxtField.setText("");
             nationalityTxtField.setText("");

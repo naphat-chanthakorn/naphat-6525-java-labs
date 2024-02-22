@@ -139,7 +139,9 @@ public class PlayerFormV6 extends PlayerFormV5
 
             // Show message dialog with the constructed message
             JOptionPane.showMessageDialog(this, message.toString());
-        } else if (srcObject == resetButton) {
+        }
+        // Set text as blank when use reset button 
+        else if (srcObject == resetButton) {
             nameTxtField.setText("");
             nationalityTxtField.setText("");
             birthTxtField.setText("");

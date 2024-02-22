@@ -104,6 +104,33 @@ public class PlayerFormV6 extends PlayerFormV5
         sports = sportsBuilder.toString();
     }
 
+    // Method to handle submit button action
+    public void handleSubmitBotton() {
+        String name = nameTxtField.getText();
+        String nationality = nationalityTxtField.getText();
+        String birth = birthTxtField.getText();
+        String gender = maleRadioButton.isSelected() ? "Male" : "Female";
+        String playerType = (String) playerTypeBox.getSelectedItem();
+
+        // Construct a message with the entered information
+        StringBuffer message = new StringBuffer();
+        message.append(name).append(" has nationality as ").append(nationality)
+                .append(" and was born on ").append(birth).append(", has gender as ")
+                .append(gender).append(", is a ").append(playerType)
+                .append(" player, has hobbies as ").append(hobbies).append(" and plays [")
+                .append(sports).append("]");
+
+        // Show message dialog with the constructed message
+        JOptionPane.showMessageDialog(this, message.toString());
+    }
+
+    // Method to handle reset button action
+    public void handleResetBotton() {
+        nameTxtField.setText("");
+        nationalityTxtField.setText("");
+        birthTxtField.setText("");
+    }
+
     // Key listener method to handle key press events
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -111,7 +138,7 @@ public class PlayerFormV6 extends PlayerFormV5
             String fieldName = textField.getName();
             String fieldValue = textField.getText();
             // Show a message dialog indicating the field name and new value
-            JOptionPane.showMessageDialog(PlayerFormV6.this, fieldName + " is changed to " + fieldValue);
+            JOptionPane.showMessageDialog(this, fieldName + " is changed to " + fieldValue);
         }
     }
 
@@ -126,29 +153,9 @@ public class PlayerFormV6 extends PlayerFormV5
     public void actionPerformed(ActionEvent e) {
         Object srcObject = e.getSource();
         if (srcObject == submitButton) {
-            // Retrieve values from text fields and components
-            String name = nameTxtField.getText();
-            String nationality = nationalityTxtField.getText();
-            String birth = birthTxtField.getText();
-            String gender = maleRadioButton.isSelected() ? "Male" : "Female";
-            String playerType = (String) playerTypeBox.getSelectedItem();
-
-            // Construct a message with the entered information
-            StringBuffer message = new StringBuffer();
-            message.append(name).append(" has nationality as ").append(nationality)
-                    .append(" and was born on ").append(birth).append(", has gender as ")
-                    .append(gender).append(", is a ").append(playerType)
-                    .append(" player, has hobbies as ").append(hobbies).append(" and plays [")
-                    .append(sports).append("]");
-
-            // Show message dialog with the constructed message
-            JOptionPane.showMessageDialog(this, message.toString());
-        }
-        // Set text as blank when use reset button
-        else if (srcObject == resetButton) {
-            nameTxtField.setText("");
-            nationalityTxtField.setText("");
-            birthTxtField.setText("");
+            handleSubmitBotton();
+        } else if (srcObject == resetButton) {
+            handleResetBotton();
         }
     }
 

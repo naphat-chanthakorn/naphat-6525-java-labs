@@ -49,11 +49,7 @@ public class PlayerFormV7 extends PlayerFormV6 {
 
         // Display the message if it is not empty
         if (message.length() > 0) {
-            SwingUtilities.invokeLater(new Runnable() {
-                public void run() {
-                    JOptionPane.showMessageDialog(PlayerFormV7.this, message.toString());
-                }
-            });
+            JOptionPane.showMessageDialog(this, message.toString());
         }
     }
 

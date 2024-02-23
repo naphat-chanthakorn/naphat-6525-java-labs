@@ -1,13 +1,10 @@
 package chanthakorn.naphat.lab10;
 
-import java.io.File;
-
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
 
 public class PlayerFormV10 extends PlayerFormV9 {
-    protected JFileChooser fileChooser;
-
     public PlayerFormV10(String title) {
         super(title);
     }
@@ -15,47 +12,54 @@ public class PlayerFormV10 extends PlayerFormV9 {
     @Override
     public void addListeners() {
         super.addListeners();
-        newMI.addItemListener(this); 
-        openMI.addItemListener(this); 
-        saveMI.addItemListener(this); 
-        exitMI.addItemListener(this); 
-        redMI.addItemListener(this); 
-        greenMI.addItemListener(this); 
-        blueMI.addItemListener(this); 
-        size16MI.addItemListener(this); 
-        size20MI.addItemListener(this); 
-        size24MI.addItemListener(this);
+        newMI.addActionListener(this);
+        openMI.addActionListener(this);
+        saveMI.addActionListener(this);
+        exitMI.addActionListener(this);
+        redMI.addActionListener(this);
+        greenMI.addActionListener(this);
+        blueMI.addActionListener(this);
+        size16MI.addActionListener(this);
+        size20MI.addActionListener(this);
+        size24MI.addActionListener(this);
+    }
+
+    private void changeFontColor(Color color) {
+        nameTxtField.setForeground(color);
+        nationalityTxtField.setForeground(color);
+        birthTxtField.setForeground(color);
+    }
+
+    private void changeFontSize(int size) {
+        Font font = new Font("Serif", Font.BOLD, size);
+        noteTxtArea.setFont(font);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Object src = e.getSource();
-        fileChooser = new JFileChooser();
-        if(src == saveMI){
-            int returnVal = fileChooser.showSaveDialog(this);
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                File file = fileChooser.getSelectedFile();
-                String filename = file.getName();
-                JOptionPane.showMessageDialog(this, 
-                            "Save : " + filename);
-            }
-        } else if(src == newMI){
-            int returnVal = fileChooser.showOpenDialog(this);
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                File file = fileChooser.getSelectedFile();
-                String filename = file.getName();
-                JOptionPane.showMessageDialog(this, 
-                            "Open : " + filename);
-            }
-        } else if (src == exitMI){
-            System.exit(1);
-        } else if (src == blueText){
+        super.actionPerformed(e);
+        JMenuItem source = (JMenuItem) e.getSource();
 
-        } else if (src == customColor){
-            Color newColor = JColorChooser.showDialog(this,"Color : ", ta.getForeground()); // Default to current text color
-            if (newColor != null) {
-                ta.setForeground(newColor);
-            }
+        if (source == redMI) {
+            changeFontColor(Color.RED);
+        } else if (source == greenMI) {
+            changeFontColor(Color.GREEN);
+        } else if (source == blueMI) {
+            changeFontColor(Color.BLUE);
+        } else if (source == size16MI) {
+            changeFontSize(16);
+        } else if (source == size20MI) {
+            changeFontSize(20);
+        } else if (source == size24MI) {
+            changeFontSize(24);
+        } else if (source == newMI) {
+            JOptionPane.showMessageDialog(this, "You click menu New");
+        } else if (source == openMI) {
+            JOptionPane.showMessageDialog(this, "You click menu Open");
+        } else if (source == saveMI) {
+            JOptionPane.showMessageDialog(this, "You click menu Save");
+        } else if (source == exitMI) {
+            System.exit(0);
         }
     }
 

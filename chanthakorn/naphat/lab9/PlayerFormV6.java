@@ -88,22 +88,24 @@ public class PlayerFormV6 extends PlayerFormV5
 
     // List selection listener method to handle sports selection
     public void valueChanged(ListSelectionEvent e) {
-        // Get selected sports from the list
-        List<String> selectedSports = sportsList.getSelectedValuesList();
-        // Construct a string with selected sports
-        sportsBuilder = new StringBuilder();
-
-        for (Object sport : selectedSports) {
-            sportsBuilder.append(sport.toString()).append(", ");
+        if (!e.getValueIsAdjusting()) {
+            // Get selected sports from the list
+            List<String> selectedsports = sportsList.getSelectedValuesList();
+            // Construct a string with selected sports
+            int numSelected = selectedsports.size();
+            StringBuffer message = new StringBuffer();
+            for (int i = 0; i < numSelected; i++) {
+                message.append(selectedsports.get(i)).append(", ");
+            }
+    
+            // Remove the trailing comma and space
+            if (message.length() > 2) {
+                message.setLength(message.length() - 2);
+            }
+    
+            // Store the constructed string
+            sports = message.toString();
         }
-
-        // Remove the last comma and space
-        if (sportsBuilder.length() > 2) {
-            sportsBuilder.setLength(sportsBuilder.length() - 2);
-        }
-
-        // Store the constructed string
-        sports = sportsBuilder.toString();
     }
 
     // Method to handle submit button action

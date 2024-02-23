@@ -89,11 +89,11 @@ public class PlayerFormV6 extends PlayerFormV5
     // List selection listener method to handle sports selection
     public void valueChanged(ListSelectionEvent e) {
         // Get selected sports from the list
-        List<String> selectedSportsList = sportsList.getSelectedValuesList();
+        List<String> selectedSports = sportsList.getSelectedValuesList();
         // Construct a string with selected sports
         sportsBuilder = new StringBuilder();
 
-        for (Object sport : selectedSportsList) {
+        for (Object sport : selectedSports) {
             sportsBuilder.append(sport.toString()).append(", ");
         }
 

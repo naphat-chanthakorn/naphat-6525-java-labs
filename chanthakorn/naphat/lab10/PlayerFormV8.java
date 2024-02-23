@@ -7,12 +7,15 @@
 
 package chanthakorn.naphat.lab10;
 
+import java.util.List;
+
 import javax.swing.*;
 import javax.swing.event.*;
 import chanthakorn.naphat.lab9.PlayerFormV7;
 
 public class PlayerFormV8 extends PlayerFormV7 implements ListSelectionListener {
     protected boolean dialogShown = false;
+
     public PlayerFormV8(String title) {
         super(title);
     }
@@ -25,17 +28,19 @@ public class PlayerFormV8 extends PlayerFormV7 implements ListSelectionListener 
 
     @Override
     public void valueChanged(ListSelectionEvent e) {
-        if (!e.getValueIsAdjusting() && !dialogShown) {
-            Object[] selectedSports = sportsList.getSelectedValues();
-            StringBuilder message = new StringBuilder("Selected sports are ");
-
-            for (Object sport : selectedSports) {
-                message.append(sport.toString()).append(" ");
+        super.valueChanged(e);
+        boolean isAdjusting = e.getValueIsAdjusting();
+        if (!isAdjusting && !dialogShown) {
+            List<String> selectedsports = sportsList.getSelectedValuesList();
+            int numSelected = selectedsports.size();
+            StringBuffer message = new StringBuffer();
+            for (int i = 0; i < numSelected; i++) {
+                message.append(selectedsports.get(i) + " ");
             }
-
-            if (message.length() > 0) {
-                JOptionPane.showMessageDialog(this, message.toString());
-            } 
+            JOptionPane.showMessageDialog(this, "Selected sports are " + message.toString());
+            dialogShown = true;
+        } else {
+            dialogShown = false;
         }
     }
 

@@ -8,6 +8,8 @@
 package chanthakorn.naphat.lab9;
 
 import java.awt.event.*;
+import java.util.List;
+
 import javax.swing.*;
 import javax.swing.event.*;
 import chanthakorn.naphat.lab8.PlayerFormV5;
@@ -87,11 +89,11 @@ public class PlayerFormV6 extends PlayerFormV5
     // List selection listener method to handle sports selection
     public void valueChanged(ListSelectionEvent e) {
         // Get selected sports from the list
-        Object[] selectedSports = sportsList.getSelectedValues();
+        List<String> selectedSportsList = sportsList.getSelectedValuesList();
         // Construct a string with selected sports
         sportsBuilder = new StringBuilder();
 
-        for (Object sport : selectedSports) {
+        for (Object sport : selectedSportsList) {
             sportsBuilder.append(sport.toString()).append(", ");
         }
 

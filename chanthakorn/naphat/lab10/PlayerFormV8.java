@@ -33,10 +33,9 @@ public class PlayerFormV8 extends PlayerFormV7 implements ListSelectionListener 
                 message.append(sport.toString()).append(" ");
             }
 
-            JOptionPane.showMessageDialog(this, message.toString());
-            dialogShown = true;
-        } else {
-            dialogShown = false;
+            if (message.length() > 0) {
+                JOptionPane.showMessageDialog(this, message.toString());
+            } 
         }
     }
 

@@ -1,14 +1,25 @@
+/*
+ * The Author: Naphat Chanthakorn
+ * Student ID: 663040652-5
+ * Sec: 2
+ * Date: 22/02/2024
+*/
+
 package chanthakorn.naphat.lab10;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+// Extending PlayerFormV9 to inherit its properties and behaviors
 public class PlayerFormV10 extends PlayerFormV9 {
+
+    // Constructor of the PlayerFormV10 class
     public PlayerFormV10(String title) {
         super(title);
     }
 
+    // Override method to add additional listeners for menu items
     @Override
     public void addListeners() {
         super.addListeners();
@@ -24,17 +35,20 @@ public class PlayerFormV10 extends PlayerFormV9 {
         size24MI.addActionListener(this);
     }
 
+    // Method to change font color
     private void changeFontColor(Color color) {
         nameTxtField.setForeground(color);
         nationalityTxtField.setForeground(color);
         birthTxtField.setForeground(color);
     }
 
+    // Method to change font size
     private void changeFontSize(int size) {
         Font font = new Font("Serif", Font.BOLD, size);
         noteTxtArea.setFont(font);
     }
 
+    // Method invoked when a menu item is clicked
     @Override
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
@@ -63,6 +77,7 @@ public class PlayerFormV10 extends PlayerFormV9 {
         }
     }
 
+    // Method to set features of the frame
     public void setFrameFeatures() {
         setLocationRelativeTo(null);
         setVisible(true);
@@ -70,6 +85,7 @@ public class PlayerFormV10 extends PlayerFormV9 {
         pack();
     }
 
+    // Method to create and show the GUI
     public static void createAndShowGUI() {
         PlayerFormV10 msw = new PlayerFormV10("Player Form V10");
         msw.addComponents();
@@ -77,7 +93,8 @@ public class PlayerFormV10 extends PlayerFormV9 {
         msw.addMenus();
         msw.addListeners();
     }
-
+    
+    // Main method to start
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {

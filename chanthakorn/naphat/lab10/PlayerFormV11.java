@@ -42,7 +42,7 @@ public class PlayerFormV11 extends PlayerFormV10 {
     public void ColorChooser() {
         colorChooser = new JColorChooser();
         colorChooser.getSelectionModel().addChangeListener(this);
-        Color newColor = JColorChooser.showDialog(this, "Choose Text Color", Color.BLACK);
+        Color newColor = JColorChooser.showDialog(this, "Choose Text Color", Color.BLUE);
 
         // Change text color of text fields based on selected color
         nameTxtField.setForeground(newColor);

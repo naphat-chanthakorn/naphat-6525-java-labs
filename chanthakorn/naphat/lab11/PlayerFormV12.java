@@ -8,6 +8,9 @@
 package chanthakorn.naphat.lab11;
 
 import java.awt.event.*;
+import java.time.*;
+import java.time.format.*;
+
 import javax.swing.*;
 import chanthakorn.naphat.lab10.PlayerFormV11;
 
@@ -19,45 +22,87 @@ public class PlayerFormV12 extends PlayerFormV11 {
         super(title);
     }
 
-    // Method to handle text field Name and display appropriate dialogs
+    // Method to handle text field Name and display dialogs
     public void handleNameTextField() {
-        String name = nameTxtField.getText();
+        String nameField = nameTxtField.getText();
 
-        if (name.isEmpty()) {
-            // Show dialog asking user to enter some data
+        if (nameField.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter some data in Name");
             // Request focus on the name text field
             nameTxtField.requestFocusInWindow();
-            // Disable the next component
+            // Disable the text field Nationality
             nationalityTxtField.setEnabled(false);
         } else {
-            // Show dialog indicating that the name is changed
-            JOptionPane.showMessageDialog(this, "Name is changed to " + name);
-            // Enable the next component
-            nationalityTxtField.setEnabled(true);
-            // Set focus on the next component
+            JOptionPane.showMessageDialog(this, "Name is changed to " + nameField);
+            // Set focus on the text field Nationality
             nationalityTxtField.requestFocusInWindow();
+            // Enable the text field Nationality
+            nationalityTxtField.setEnabled(true);
         }
     }
 
+    // Method to handle text field Nationality and display dialogs
     public void handleNationalityTextField() {
-        
+        String nationalityField = nationalityTxtField.getText();
+
+        if (nationalityField.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter some data in Nationality");
+            // Request focus on the name text field
+            nationalityTxtField.requestFocusInWindow();
+            // Disable the text field Date of birth
+            birthTxtField.setEnabled(false);
+        } else {
+            // Show dialog indicating that the name is changed
+            JOptionPane.showMessageDialog(this, "Nationality is changed to " + nationalityField);
+            // Enable the text field Date of birth
+            birthTxtField.setEnabled(true);
+            // Set focus on the text field Date of birth
+            birthTxtField.requestFocusInWindow();
+        }
     }
 
-    // Override method to add additional listeners for text field Name
+    // Method to handle text field Date of birth and display dialogs
+    public void handleBirthTextField() {
+        String birthField = birthTxtField.getText();
+        
+        try {
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            // Parse the input date using the defined format
+            LocalDate dateOfBirth = LocalDate.parse(birthField, dateFormatter);
+            
+            // If the date is successfully parsed, display the confirmation message
+            JOptionPane.showMessageDialog(this, "Date of Birth is changed to " + dateOfBirth.format(dateFormatter));
+        } catch (DateTimeParseException e) {
+            // If an exception occurs, it means the input date is not in the correct format
+            JOptionPane.showMessageDialog(this, "Please enter a valid date in Date of Birth");
+        }
+    }
+
+    /*
+    protected void handleTextField(JTextField textField) {
+        if (textField == birthTxtField) {
+            handleBirthTextField(textField);
+        } else if (textField == nameTxtField) {
+            handleNormalTextField(nameTxtField, nationalityTxtField);
+        } else if (textField == nationalityTxtField) {
+            handleNormalTextField(nationalityTxtField, birthTxtField)
+        }
+    }
+    */    
+
     @Override
-    public void addListeners() {
-        super.addListeners();
-        nameTxtField.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                // Check if the Enter key is pressed
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    // Handle the text field Name
-                    handleNameTextField();
-                }
+    public void keyPressed(KeyEvent e) {
+        // Check if Enter key is pressed
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (e.getSource() == nameTxtField) {
+                handleNameTextField();
+            } else if (e.getSource() == nationalityTxtField) {
+                handleNationalityTextField();
+            } else if (e.getSource() == birthTxtField) {
+                // Handle the birth text field
+                handleBirthTextField();
             }
-        });
+        }
     }
 
     // Method to set features of the frame

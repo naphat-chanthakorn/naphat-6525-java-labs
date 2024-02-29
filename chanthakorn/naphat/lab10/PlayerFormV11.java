@@ -76,7 +76,7 @@ public class PlayerFormV11 extends PlayerFormV10 {
     public void enableKeyboard() {
         // Set mnemonic key for the file menu
         fileMenu.setMnemonic(KeyEvent.VK_F);
-    
+
         // Set mnemonic keys and accelerator keys for other menus
         newMI.setMnemonic(KeyEvent.VK_N);
         newMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.META_DOWN_MASK));
@@ -87,7 +87,7 @@ public class PlayerFormV11 extends PlayerFormV10 {
         exitMI.setMnemonic(KeyEvent.VK_X);
         exitMI.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.META_DOWN_MASK));
     }
-    
+
     // Method invoked when a menu item is clicked
     @Override
     public void actionPerformed(ActionEvent e) {

@@ -93,7 +93,7 @@ public class PlayerFormV10 extends PlayerFormV9 {
         msw.addMenus();
         msw.addListeners();
     }
-    
+
     // Main method to start
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {

@@ -51,7 +51,7 @@ public class PlayerFormV11 extends PlayerFormV10 {
     }
 
     // Method to handle opening file menu item
-    public void handlerOPenMenu() {
+    public void handleOPenMenu() {
         fileChooser = new JFileChooser();
         int returnVal = fileChooser.showOpenDialog(PlayerFormV11.this);
 
@@ -62,7 +62,7 @@ public class PlayerFormV11 extends PlayerFormV10 {
     }
 
     // Method to handle saving file menu item
-    public void handlerSaveMenu() {
+    public void handleSaveMenu() {
         fileChooser = new JFileChooser();
         int returnVal = fileChooser.showSaveDialog(PlayerFormV11.this);
 
@@ -97,9 +97,9 @@ public class PlayerFormV11 extends PlayerFormV10 {
         if (source == customMI) {
             ColorChooser();
         } else if (source == openMI) {
-            handlerOPenMenu();
+            handleOPenMenu();
         } else if (source == saveMI) {
-            handlerSaveMenu();
+            handleSaveMenu();
         }
     }
 

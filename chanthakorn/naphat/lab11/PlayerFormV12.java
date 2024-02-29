@@ -40,13 +40,13 @@ public class PlayerFormV12 extends PlayerFormV11 {
     // Method to handle text field Date of birth
     public void handleBirthTextField(JTextField textField) {
         String birthField = textField.getText();
-        
+
         try {
             // Define the date formatter for the format (dd-MM-yyyy)
             DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             // Parse the input date using the defined format
             LocalDate dateOfBirth = LocalDate.parse(birthField, dateFormatter);
-            
+
             JOptionPane.showMessageDialog(this, "Date of Birth is changed to " + dateOfBirth.format(dateFormatter));
         } catch (DateTimeParseException e) {
             // If an exception occurs, it means the input date is not in the correct format
@@ -63,9 +63,9 @@ public class PlayerFormV12 extends PlayerFormV11 {
         } else if (textField == birthTxtField) {
             handleBirthTextField(textField);
         }
-    }   
-    
-    //Override key pressed method to handle each text field
+    }
+
+    // Override key pressed method to handle each text field
     @Override
     public void keyPressed(KeyEvent e) {
         // Check if Enter key is pressed

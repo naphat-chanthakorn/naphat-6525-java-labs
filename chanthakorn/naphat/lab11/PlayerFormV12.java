@@ -10,7 +10,6 @@ package chanthakorn.naphat.lab11;
 import java.awt.event.*;
 import java.time.*;
 import java.time.format.*;
-
 import javax.swing.*;
 import chanthakorn.naphat.lab10.PlayerFormV11;
 
@@ -22,55 +21,32 @@ public class PlayerFormV12 extends PlayerFormV11 {
         super(title);
     }
 
-    // Method to handle text field Name and display dialogs
-    public void handleNameTextField() {
-        String nameField = nameTxtField.getText();
+    // Method to handle text field Name and Nationality
+    public void handleNormalTextField(JTextField currentTextField, JTextField nextTextField) {
+        String currentFieldName = currentTextField.getName();
+        String currentFieldValue = currentTextField.getText();
 
-        if (nameField.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please enter some data in Name");
-            // Request focus on the name text field
-            nameTxtField.requestFocusInWindow();
-            // Disable the text field Nationality
-            nationalityTxtField.setEnabled(false);
+        if (currentFieldValue.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter some data in " + currentFieldName);
+            currentTextField.requestFocusInWindow();
+            nextTextField.setEnabled(false);
         } else {
-            JOptionPane.showMessageDialog(this, "Name is changed to " + nameField);
-            // Set focus on the text field Nationality
-            nationalityTxtField.requestFocusInWindow();
-            // Enable the text field Nationality
-            nationalityTxtField.setEnabled(true);
+            JOptionPane.showMessageDialog(this, currentFieldName + " is changed to " + currentFieldValue);
+            nextTextField.setEnabled(true);
+            nextTextField.requestFocusInWindow();
         }
     }
 
-    // Method to handle text field Nationality and display dialogs
-    public void handleNationalityTextField() {
-        String nationalityField = nationalityTxtField.getText();
-
-        if (nationalityField.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please enter some data in Nationality");
-            // Request focus on the name text field
-            nationalityTxtField.requestFocusInWindow();
-            // Disable the text field Date of birth
-            birthTxtField.setEnabled(false);
-        } else {
-            // Show dialog indicating that the name is changed
-            JOptionPane.showMessageDialog(this, "Nationality is changed to " + nationalityField);
-            // Enable the text field Date of birth
-            birthTxtField.setEnabled(true);
-            // Set focus on the text field Date of birth
-            birthTxtField.requestFocusInWindow();
-        }
-    }
-
-    // Method to handle text field Date of birth and display dialogs
-    public void handleBirthTextField() {
-        String birthField = birthTxtField.getText();
+    // Method to handle text field Date of birth
+    public void handleBirthTextField(JTextField textField) {
+        String birthField = textField.getText();
         
         try {
+            // Define the date formatter for the format (dd-MM-yyyy)
             DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             // Parse the input date using the defined format
             LocalDate dateOfBirth = LocalDate.parse(birthField, dateFormatter);
             
-            // If the date is successfully parsed, display the confirmation message
             JOptionPane.showMessageDialog(this, "Date of Birth is changed to " + dateOfBirth.format(dateFormatter));
         } catch (DateTimeParseException e) {
             // If an exception occurs, it means the input date is not in the correct format
@@ -78,29 +54,28 @@ public class PlayerFormV12 extends PlayerFormV11 {
         }
     }
 
-    /*
+    // Method to handle all of text fields
     protected void handleTextField(JTextField textField) {
-        if (textField == birthTxtField) {
-            handleBirthTextField(textField);
-        } else if (textField == nameTxtField) {
+        if (textField == nameTxtField) {
             handleNormalTextField(nameTxtField, nationalityTxtField);
         } else if (textField == nationalityTxtField) {
-            handleNormalTextField(nationalityTxtField, birthTxtField)
+            handleNormalTextField(nationalityTxtField, birthTxtField);
+        } else if (textField == birthTxtField) {
+            handleBirthTextField(textField);
         }
-    }
-    */    
-
+    }   
+    
+    //Override key pressed method to handle each text field
     @Override
     public void keyPressed(KeyEvent e) {
         // Check if Enter key is pressed
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             if (e.getSource() == nameTxtField) {
-                handleNameTextField();
+                handleTextField(nameTxtField);
             } else if (e.getSource() == nationalityTxtField) {
-                handleNationalityTextField();
+                handleTextField(nationalityTxtField);
             } else if (e.getSource() == birthTxtField) {
-                // Handle the birth text field
-                handleBirthTextField();
+                handleTextField(birthTxtField);
             }
         }
     }

@@ -1,14 +1,24 @@
+/*
+ * The Author: Naphat Chanthakorn
+ * Student ID: 663040652-5
+ * Sec: 2
+ * Date: 22/02/2024
+*/
+
 package chanthakorn.naphat.lab11;
 
 import java.io.*;
 import javax.swing.*;
 
+// Extending PlayerFormV13 to inherit its properties and behaviors
 public class PlayerFormV13 extends PlayerFormV12 {
 
+    // Constructor of the PlayerFormV13 class
     public PlayerFormV13(String title) {
         super(title);
     }
 
+    // Method to constructs a string containing player information
     public String getPlayerData() {
         StringBuilder data = new StringBuilder();
         data.append(nameTxtField.getText()).append(" has nationality as ")
@@ -21,6 +31,7 @@ public class PlayerFormV13 extends PlayerFormV12 {
         return data.toString();
     }
 
+    // Method to handle saving file menu item
     @Override
     public void handleSaveMenu() {
         fileChooser = new JFileChooser();
@@ -38,6 +49,7 @@ public class PlayerFormV13 extends PlayerFormV12 {
         }
     }
 
+    // Method to handle opening file menu item
     @Override
     public void handleOPenMenu() {
         fileChooser = new JFileChooser();
@@ -58,7 +70,7 @@ public class PlayerFormV13 extends PlayerFormV12 {
             }
         }
     }
-    
+
     // Method to create and show the GUI
     public static void createAndShowGUI() {
         PlayerFormV13 msw = new PlayerFormV13("Player Form V13");

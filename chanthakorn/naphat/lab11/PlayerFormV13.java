@@ -52,7 +52,7 @@ public class PlayerFormV13 extends PlayerFormV12 {
                     fileData.append(line).append("\n");
                 }
                 JOptionPane.showMessageDialog(this, "Opening file " + file.getPath());
-                JOptionPane.showMessageDialog("Data read from file " + file.getPath() + " is \n" + fileData.toString());
+                JOptionPane.showMessageDialog(this, "Data read from file " + file.getPath() + " is \n" + fileData);
             } catch (IOException e) {
                 System.err.println("Error in open file");
             }

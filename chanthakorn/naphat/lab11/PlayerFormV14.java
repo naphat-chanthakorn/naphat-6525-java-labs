@@ -75,6 +75,7 @@ public class PlayerFormV14 extends PlayerFormV13 {
                     nameTxtField.setText(readPlayer.getName());
                     nationalityTxtField.setText(readPlayer.getNationality());
                     birthTxtField.setText(readPlayer.getDob());
+                    yearExpSlider.getValue();
                     if (readPlayer.getGender().equals("Male")) {
                         maleRadioButton.setSelected(true);
                     } else {
